@@ -42,7 +42,7 @@
 			array_push($errors,"Password is required");
 		}
 		
-		$user_check_query = "SELECT * FROM management_tb WHERE `Management_ID` = '$sid'";
+		$user_check_query = "SELECT * FROM management_tb WHERE `Management_ID` = '$login_session'";
 		$result = mysqli_query($conn, $user_check_query);
 		$user = mysqli_fetch_assoc($result);
 			
@@ -246,9 +246,6 @@
                         <div class="txtarea">
                                 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" id="NewCO_Form">
                                 <div class="row">
-                                    <div class="col">
-                                        <input type="text" class="form-control" name="ID" placeholder="ID" id="COID" aria-label="ID">
-                                    </div>
                                     <div class="col">
                                         <input type="text" class="form-control" name="Name" placeholder="Name" id="COName" aria-label="name">
                                     </div>
