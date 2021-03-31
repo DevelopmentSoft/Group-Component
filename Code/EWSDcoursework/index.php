@@ -175,13 +175,13 @@ if (isset($_POST['UpdateProfile'])) {
 									echo "<form action='" . $_SERVER["PHP_SELF"] . "' method='POST' enctype='multipart/form-data'>
 											<label for='Image' class='form-label'>Image</label>
 											<div class='custom-file'>
-											<input type='file' class='custom-file-input' id='inputImage' name='Image'>
+											<input type='file' class='custom-file-input' id='inputImage' name='Image' accept='image/*'>
 											<label class='custom-file-label' id='lblImg' for='inputImage'>Choose file</label>
 											</div>
 
 											<label for='file' class='form-label'>File</label>
 											<div class='custom-file' style='margin: 20px 0'>
-											<input type='file' class='custom-file-input' id='inputFile' name='uploadfile'>
+											<input type='file' class='custom-file-input' id='inputFile' name='uploadfile' accept='.xlsx,.xls,.doc, .docx,.ppt, .pptx,.txt,.pdf'>
 											<label class='custom-file-label' id='lblfile' for='inputFile'>Choose file</label>
 											</div>
 
