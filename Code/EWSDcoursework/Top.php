@@ -92,9 +92,9 @@
 
 										if(!empty($login_name)){
                                             if($login_type == "student"){
-                                                echo "<li class='active'><a href='index.php#txtarea'>Student Form</a></li>";
+                                                echo "<li class='active'><a href='index.php#txtarea'>Contribution Submission</a></li>";
                                                  echo"<li class='active'><a href='Faculty.php#txtarea'>Faculty</a></li>";
-                                                echo"<li class='active'><a href='#Profile_Form'>Profile</a></li>";
+                                                echo"<li class='active'><a href='index.php#Profile_Form'>Profile</a></li>";
                                                 if (!empty($row["ID"])) {
                                 echo "<li class='active'><a href='Contribution.php?Cid=" . $row["ID"] . "'>My Contribution</a></li>";
                                 }
@@ -148,8 +148,6 @@
                                        echo "<h1>Welcome,<br>User</h1>";
                                    }
                                    ?>
-                                    <span>Please key in the detail or information that showed below<br> Thank You!!!</span>
-<!--                                    <a href="#txtarea">Form</a>-->
                                 </div>
 
                                 </div>

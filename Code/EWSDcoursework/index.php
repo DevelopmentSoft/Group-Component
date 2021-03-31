@@ -122,7 +122,7 @@ if (isset($_POST['UpdateProfile'])) {
 
 			if ($conn->query($Updatesql) == TRUE) {
 
-				echo "<script>alert('Profile has been Updated') window.location.replace('index.php')</script>";
+				echo "<script>alert('Profile has been Updated'); window.location.replace('index.php')</script>";
 			} else {
 				echo "Error updating record: " . $conn->error;
 			}
@@ -142,7 +142,7 @@ if (isset($_POST['UpdateProfile'])) {
 			<div class="row">
 				<div class="col-md-12">
 					<div class="titlepage">
-						<h2>Student Form</h2>
+						<h2>Contribution Submission Form</h2>
 					</div>
 				</div>
 			</div>

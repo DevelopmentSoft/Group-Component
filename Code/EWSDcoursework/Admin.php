@@ -42,7 +42,7 @@
 			array_push($errors,"Password is required");
 		}
 		
-		$user_check_query = "SELECT * FROM management_tb WHERE `Management_ID` = '$login_session'";
+		$user_check_query = "SELECT * FROM management_tb WHERE `Management_ID` = '$sid'";
 		$result = mysqli_query($conn, $user_check_query);
 		$user = mysqli_fetch_assoc($result);
 			
@@ -93,7 +93,7 @@
             array_push($errors,"Invalid Date");
         }
         
-        $user_check_query = "SELECT * FROM Event_tb WHERE `Name` = '$EventName'";
+        $user_check_query = "SELECT * FROM Event_tb WHERE `Name` = '$EventName' || `Start_Date` = '$SDate' || `End_Date` = '$EDate'";
 		$result = mysqli_query($conn, $user_check_query);
 		$user = mysqli_fetch_assoc($result);
 			
@@ -114,7 +114,7 @@
         
 		//if there are no error,save user to database
 		if(count($errors) == 0){
-            $insert ="INSERT INTO event_tb(Name,Start_Date,End_Date,Status)VALUES('$EventName','$SDate','$EDate','Active')";
+            $insert ="INSERT INTO event_tb(Name,Start_Date,End_Date)VALUES('$EventName','$SDate','$EDate')";
         
 			if ($conn->query($insert) === TRUE) {
 				echo "<script>alert('Event has been created')</script>";
@@ -130,11 +130,6 @@
 		}
     }
 	?>
-    
-
-
-
-
 <body>
 
 <!-- Event Management -->
@@ -171,19 +166,18 @@
                                                         <th>Name</th>
                                                         <th>Start Date</th>
                                                         <th>End Date</th>
-                                                        <th>Status</th>
                                                         <!-- Open Date For Update only || Add Uploaded Deadline || Cancel Submission 1 wk b4 End Date-->
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                 <?php
-                                                    $sql2 = "SELECT * FROM event_tb ORDER BY Start_Date ASC LIMIT $curr_result,".RPP;
+                                                    $sql2 = "SELECT * FROM event_tb ORDER BY Start_Date DESC LIMIT $curr_result,".RPP;
                                                     $eventresult = mysqli_query($conn,$sql2);
                                                     
                                                     if(mysqli_num_rows($eventresult)!=0) { 
                                                     // output data of each row
                                                         while($Eventrow = mysqli_fetch_assoc($eventresult)) {
-                                                            echo "<tr><td>" . $Eventrow["Name"]. "</td><td id='marker'>" . $Eventrow["Start_Date"]. "</td><td>" . $Eventrow["End_Date"]. "</td><td>" . $Eventrow["Status"]. "</td></tr>";
+                                                            echo "<tr><td>" . $Eventrow["Name"]. "</td><td id='marker'>" . $Eventrow["Start_Date"]. "</td><td>" . $Eventrow["End_Date"]. "</td></tr>";
                                                         }
                                                     }
                                                     else{
@@ -246,7 +240,7 @@
                         <div class="txtarea">
                                 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" id="NewCO_Form">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-12">
                                         <input type="text" class="form-control" name="Name" placeholder="Name" id="COName" aria-label="name">
                                     </div>
                                     <br>
