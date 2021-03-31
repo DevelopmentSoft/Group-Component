@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="titlepage">
-                        <h2>Contribution Submission Date Management</h2>
+                        <h2>Contributions</h2>
                     </div>
                 </div>
             </div>
