@@ -41,16 +41,6 @@
 		if(empty($password)){
 			array_push($errors,"Password is required");
 		}
-		
-		$user_check_query = "SELECT * FROM management_tb WHERE `Management_ID` = '$sid'";
-		$result = mysqli_query($conn, $user_check_query);
-		$user = mysqli_fetch_assoc($result);
-			
-		if ($user) { // if user exists
-			if ($user['Management_ID'] === $sid) {
-				array_push($errors, "Management ID already exists");
-			}
-		}
 	
 		//if there are no error,save user to database
 		if(count($errors) == 0){
