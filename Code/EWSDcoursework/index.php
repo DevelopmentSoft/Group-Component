@@ -38,7 +38,7 @@ if (isset($_POST["PostContri"])) {
 		$rowCheck = mysqli_num_rows($chkresult);
 
 		if ($rowCheck > 0) {
-			$Updatesql =  "UPDATE contribution_tb SET Type='$type', Image = '$image', File='$filename',DateSubmitted='$ds',filedata = '$fileData' WHERE SubBy ='$sid'";
+			$Updatesql =  "UPDATE contribution_tb SET Type='$type', Image = '$image', File='$filename',DateSubmitted='$ds',filedata = '$fileData' WHERE SubBy ='$login_session'";
 
 			if ($conn->query($Updatesql) === TRUE) {
 				echo "<script>alert('Contribution Updated')
